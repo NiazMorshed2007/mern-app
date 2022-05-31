@@ -1,12 +1,25 @@
 import React from "react";
+import NavBar from "./components/NavBar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import CreateUser from "./pages/Create.user";
+import GetUsers from "./pages/Get.users";
+import GetExercises from "./pages/GetExercises";
+import CreateExercise from "./pages/Create.Exercises";
 
 const App = () => {
   return (
-    <main className="p-10 px-28">
-      <h1 className="text-3xl underline underline-offset-8 decoration-violet-500">
-        Exercises
-      </h1>
-    </main>
+    <Router>
+      <main className="p-10 px-28">
+        <NavBar />
+        <Routes>
+          <Route path="/" element={"Home page"} />
+          <Route path="/users" element={<GetUsers />} />
+          <Route path="/users/create" element={<CreateUser />} />
+          <Route path="/exercises" element={<GetExercises />} />
+          <Route path="/exercises/create" element={<CreateExercise />} />
+        </Routes>
+      </main>
+    </Router>
   );
 };
 
